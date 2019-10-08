@@ -13,11 +13,11 @@
 6) Credentials for project
 
 
-Admin credentials
+  Admin credentials
 
-Username: admin
+  Username: admin
 
-Password: admin
+  Password: admin
 
 Functionalities included for Admin :-
 
