@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script>
+if (typeof(Storage) !== "undefined") 
+{
+    if(localStorage.getItem('admin')=="yes")
+    {
+    }
+    else
+    {
+    	window.location="index.html";	
+    }
+} 
+else
+{
+   alert('Sorry, your browser does not support Web Storage...');
+}
+</script>
+
+<style type="text/css">
+	.card
+	{
+	border:none;
+	}
+	.col-md-4
+	{
+	margin:5px;
+	}
+	.aaa
+	{
+	color:white;
+	}
+	.btn-danger:hover
+	{
+		background-color:#6dd5ed;
+	}
+	@media only screen and (max-width: 600px) {
+    .card {
+        margin-bottom:20px;
+    }
+}
+</style>
+
+
+</head>
+<body background="a7.jpg" style="background-size:cover;">
+		<nav class="navbar navbar-expand-lg  bg-dark navbar-dark">
+			
+			<img src="logo.png" width="50px" height="50px" class="mr-md-4 ml-md-3">
+			<div class="navbar-brand">
+				<h5>Online MCQ Portal</h5>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navid">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			
+			<div class="collapse navbar-collapse" id="navid">
+				<ul class="navbar-nav text-center ml-auto mr-5">
+					<li class="nav-item active">
+						<a class="nav-link" href="admin_dashboard.html"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="addstudent.html"><i class="fa fa-plus-square" aria-hidden="true"></i> Add Student</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="addque.html"><i class="fa fa-question-circle" aria-hidden="true"></i>
+						 Add Question</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="quiz_setting.html"><i class="fa fa-cog" aria-hidden="true"></i> Quiz Setting</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="ReportAllStdents"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Quiz Report</a>
+					</li>
+		<!--  		<li class="nav-item">
+						<a class="nav-link" href="#">Edit Profile</a>
+					</li>		-->
+		<!--			<li class="nav-item">
+						<a class="nav-link" href="change_password.html"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
+					</li>	-->
+					<li class="nav-item">
+						<a class="nav-link" href="/Online_MCQ_Portal/LogoutAdmin"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+					</li>
+				</ul>
+			</div>
+	</nav>
+
+	<div class="container">
+		<div class='row mt-5'>
+			<div class='col-md-6'>
+				<div class="card">
+					<div class="card-header">
+						<h3 class='text-info'>
+							Quiz Options
+						</h3>
+					</div>
+					<div class="card-body">
+						<div class="row"> 
+						
+							<div class="col-md-8">
+								<h4><i class="fa fa-plus-square" aria-hidden="true"></i>     Add Question</h4>
+							</div>
+							<div class="col-md-3">
+								<a href="addque.html" class="btn btn-danger">Add Question</a>
+							</div>
+						</div>	
+						<hr>	
+						<div class="row">	
+							<div class="col-md-8">
+								<h4><i class="fa fa-cog" aria-hidden="true"></i>  Quiz Settings</h4>
+							</div>
+							<div class="col-md-3">
+								<a href="quiz_setting.html" class="btn btn-danger">Quiz Settings</a>
+							</div>
+						</div>		
+						<hr>
+						<div class="row">		
+							<div class="col-md-8">
+								<h4><i class="fa fa-file-excel-o" aria-hidden="true"></i>  Quiz Report</h4>
+							</div>
+							
+							<div class="col-md-3">
+								<a href="ReportAllStdents" class="btn btn-danger">Quiz's Report</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="card">
+					<div class="card-header">
+						<h3 class='text-info'>
+							Other Options
+						</h3>
+					</div>
+					<div class="card-body">
+						<div class="row"> 
+							<div class="col-md-8">
+								<h4><i class="fa fa-plus-square" aria-hidden="true"></i>   Add Student</h4>
+							</div>
+							<div class="col-md-2">
+								<a href="addstudent.html" class="btn btn-danger">Add Student</a>
+							</div>
+							
+						</div>	
+						<hr>
+						<div class="row"> 
+							<div class="col-md-8">
+								<h4><i class="fa fa-key" aria-hidden="true"></i>  Change Password</h4>
+							</div>
+							<div class="col-md-2">
+								<a href="change_password.html" class="btn btn-danger">Change pass</a>
+							</div>
+							
+						</div>	
+						<hr>
+						<div class="row"> 
+							<div class="col-md-8">
+								<h4><i class="fa fa-sign-out" aria-hidden="true"></i>  Logout</h4>
+							</div>
+							<div class="col-md-2">
+								<a href="LogoutAdmin" class="btn btn-danger" style='width:115px'>Logout</a>
+							</div>
+							
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

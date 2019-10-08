@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style type="text/css">
+
+	body
+	{
+		padding-top : 50px;
+	}
+	.panel-heading {
+	text-align:center;
+	}
+	.panel
+	{
+	background-color:transparent;
+	}
+	
+	.btn-light
+	{
+		background-color:#f8f8f8;
+		color:#757575;
+	}
+	
+	h2
+	{
+		padding:10px;
+	}
+	
+	.panel-body
+	{
+	border:5px;
+	border-color:black;
+	}
+	
+	
+</style>
+<script>
+
+	$(function() {
+	
+	    $('#admin').click(function(e) {
+			$("#admin-form").delay(100).fadeIn(100);
+	 		$("#student-form").fadeOut(100);
+		});
+	    
+		$('#student').click(function(e) {
+			$("#student-form").delay(100).fadeIn(100);
+	 		$("#admin-form").fadeOut(100);
+		});
+
+	});
+	
+	function stud()
+	{
+	}
+	
+	function admin()
+	{
+	}
+	
+	
+</script>
+</head>
+<body background="a7.jpg" style="background-size:cover;">
+	<div class="container">
+    	<div class="row"> 	
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel">
+					<div class="panel-heading">
+						<div class="row">
+							<h2 style="color: white">Online MCQ Portal</h2>
+						  	<div class="col-xs-6">
+								<h1><a href="#" class="btn btn-light form-control" id="admin" style="font-size:16px; ">Admin</a></h1>
+							</div>
+							<div class="col-xs-6">
+								<h1><a href="#" id="student" class="btn btn-light form-control" style="font-size:16px; ">Student</a></h1>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="admin-form" action="LoginProcess" method="post" role="form" style="display: block;">
+									<div class="input-group form-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										<input type="text" name="admin_name" id="username" class="form-control" placeholder="Enter Username" value="" required="true">
+									</div>
+									<div class="input-group form-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+										<input type="password" name="admin_password" id="password"  class="form-control" placeholder="Enter Password" required="true">
+									</div>
+									<div class="form-group">
+											<input type="submit" name="login" id="login-admin" class=" form-control btn btn-primary" value="Log In">	
+									</div>
+									<div class="form-group">
+												<input type="reset" name="reset" id="reset" style="background-color:#6c757d; color:#ffffff;" class="form-control btn" value="Clear">	
+									</div>
+								</form>
+								
+								<form id="student-form" action="LoginProcess" method="post" role="form" style="display: none;">
+									<div class="input-group form-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										<input type="number" name="student_roll"  class="form-control" placeholder="Enter Roll Number" value="" required="true" min="1">
+									</div>
+									<div class="input-group form-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+										<input type="password" name="student_password" class="form-control" placeholder="Enter Password" required="true">
+									</div>
+									<div class="form-group">
+												<input type="submit" name="login" id="login_student" class="form-control btn btn-primary" value="Login">
+									</div>
+									<div class="form-group">
+												<input type="reset" name="reset2" id="reset2" style="background-color:#6c757d; color:#ffffff;" class="form-control btn" value="Clear">	
+									</div>
+								</form>
+								
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

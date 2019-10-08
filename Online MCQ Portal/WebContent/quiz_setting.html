@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Quiz Settings</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript">
+function onLoad() {
+	  var input = document.getElementById("dateField");
+	  var today = new Date();
+	  
+	  var day = new String(today.getDate());
+	  var mon = new String(today.getMonth()+1);
+	  var yr = today.getFullYear();
+
+	    if(day.length < 2) { day = "0" + day; }
+	    if(mon.length < 2) { mon = "0" + mon; }
+
+	    var date = new String( yr + '-' + mon + '-' + day );
+
+	  input.disabled = false; 
+	  input.setAttribute('value',date);
+	  input.setAttribute('min', date);
+	}
+</script>
+	
+<style type="text/css">	
+@media only screen and (max-width: 600px) {
+.mb{
+margin-top:20px;
+}
+}
+@media only screen and (max-width: 600px) {
+    .card {
+        margin-bottom:20px;
+    }
+</style>
+
+
+<script>
+if (typeof(Storage) !== "undefined") 
+{
+    if(localStorage.getItem('admin')=="yes")
+    {
+    }
+    else if(localStorage.getItem('admin')=="no")
+    {
+    	window.location="index.html";	
+    }
+} 
+else
+{
+   alert('Sorry, your browser does not support Web Storage...');
+}
+
+function Validate()
+{
+	var data = document.getElementById('ps').value;
+	if(isNaN(data))
+	{
+		document.getElementById('btn').disabled=true;
+		document.getElementById('msg').style.color="red";
+		document.getElementById('msg').innerHTML = "Password contains only numbers";
+	}
+	else
+	{	
+		document.getElementById('btn').disabled=false;
+		document.getElementById('msg').innerHTML = "";
+	}
+}
+
+</script>
+
+</head>
+
+<body background="a7.jpg" style="background-size:cover;" onload="onLoad();">
+
+	<nav class="navbar navbar-expand-lg  bg-dark navbar-dark">
+			
+			<img src="logo.png" width="50px" height="50px" class="mr-md-4 ml-md-3">
+			<div class="navbar-brand">
+				<h5>Online MCQ Portal</h5>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navid">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			
+			<div class="collapse navbar-collapse" id="navid">
+				<ul class="navbar-nav text-center ml-auto mr-5">
+					<li class="nav-item">
+						<a class="nav-link" href="admin_dashboard.html"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="addstudent.html"><i class="fa fa-plus-square" aria-hidden="true"></i> Add Student</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="addque.html"><i class="fa fa-question-circle" aria-hidden="true"></i>
+						 Add Question</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="quiz_setting.html"><i class="fa fa-cog" aria-hidden="true"> </i> Quiz Setting</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="ReportAllStdents"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Quiz Report</a>
+					</li>
+			<!--		<li class="nav-item">
+						<a class="nav-link" href="#">Edit Profile</a>
+					</li>		-->
+			<!--		<li class="nav-item">
+						<a class="nav-link" href="change_password.html"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
+					</li>	-->
+					<li class="nav-item">
+						<a class="nav-link" href="/Online_MCQ_Portal/LogoutAdmin"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+					</li>
+				</ul>
+			</div>
+	</nav>
+
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+			<form action="QuizSetting" method="post">
+				<div class="card"> 
+					<div class="card-header bg-secondary text-light">
+						<h3>Quiz Settings</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group">
+							<label>Quiz Date : </label>
+							<input id="dateField" type="date" name="date" class="form-control" disabled="true">
+						</div>
+						
+						<div class="form-group">
+							<label>Time Duration (in minutes) : </label>
+							<input type="number" name="time" class="form-control" min="15" max="180">
+						</div>
+						
+						<div class="form-group">
+							<label>Password :</label>
+							<input type="password" id="ps" name="password" class="form-control" oninput="Validate()">
+							<span id="msg"></span>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+							<input class="btn btn-danger form-control" type="submit" name="Save" value="Save" id="btn">
+							</div>
+							<div class="col-md-6">
+								<input type="reset" class="mb btn btn-dark form-control" name="reset" value="Reset">
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

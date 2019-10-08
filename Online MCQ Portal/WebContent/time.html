@@ -1,0 +1,51 @@
+<script type='text/javascript'>
+
+        $(document).ready(function() {
+            f1();
+        });
+
+        var tm='5';
+        var min=tm;
+        var sec='2';
+
+        function f1()
+        {
+        var f = new Date();
+        document.getElementById('start-time').innerHTML = 'You have started Quiz at : '+ f.getHours() + ':' + f.getMinutes();
+
+           f2();
+        }
+
+        function f2() 
+        {
+            if (parseInt(sec) > 0) 
+            {
+                sec = parseInt(sec) - 1;
+                document.getElementById('showtime').innerHTML = 'Your Left Time  is :'+min+' Minutes ', + sec+' Seconds';
+                tim = setTimeout('f2()', 1000);
+            }
+            else
+           {
+                if (parseInt(sec) == 0) 
+                {  
+                    if (parseInt(min) == 0) 
+                    {
+                        clearTimeout(tim);
+                     //   location.href = "index.jsp";
+                        alert('Quiz Time Out click on Submit Button : ');
+                       
+                       // document.getElementById("form1").style.display = 'none';
+                        
+                    }
+                    else 
+                    {
+                        sec = 59;
+                        min = parseInt(min) - 1;
+                        document.getElementById('showtime').innerHTML = 'Your Left Time  is :' + min + 'Minutes ,' + sec + ' Seconds';
+                        tim = setTimeout('f2()', 1000); 
+                    }   
+                }
+            }
+        }
+
+    </script>
